@@ -1,0 +1,101 @@
+﻿@page
+@model MoscowWeather.Pages.Weather.Entity.IndexModel
+
+
+
+
+<h2>@ViewData["Title"]</h2>
+<h2>@Model.Message</h2>
+<p>Фильтр по месяцу и году.</p>
+<form method="post">
+    <table>
+        <tr>
+            <td><input type="number" name="month" value="@Model.Month" /></td>
+            <td><input type="number" name="year" value="@Model.Year" /></td>
+            <td><input type="submit" value="Задать фильтр" /></td>
+        </tr>
+    </table>
+    <a href="/Weather/Index">Назад</a>
+</form>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DBWeather[0].DateTimeObservation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DBWeather[0].AirTemp)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DBWeather[0].Humidity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DBWeather[0].DewPoint)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DBWeather[0].AtmPressure)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DBWeather[0].WindDir)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DBWeather[0].WindSpeed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DBWeather[0].Cloudiness)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DBWeather[0].HeightCloudiness)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DBWeather[0].HorizontVisibility)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DBWeather[0].WeatherEvent)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.DBWeather)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateTimeObservation)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AirTemp)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Humidity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DewPoint)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AtmPressure)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.WindDir)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.WindSpeed)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cloudiness)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HeightCloudiness)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HorizontVisibility)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.WeatherEvent)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
